@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-USER app
+RUN groupadd -r mctech && useradd -r -g mctech mctech
 WORKDIR /app
 EXPOSE 8081
 EXPOSE 443
@@ -30,4 +30,5 @@ RUN dotnet publish "./WebApi.csproj" \
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+USER mctech
 ENTRYPOINT ["dotnet", "WebApi.dll"]
