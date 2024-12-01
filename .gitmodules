@@ -1,0 +1,9 @@
+[submodule "Fiap.McTech.Orders"]
+	path = Fiap.McTech.Orders
+	url = git@github.com:Grupo-68-FIAP/Fiap.McTech.Orders.git
+[submodule "Fiap.McTech.Payments"]
+	path = Fiap.McTech.Payments
+	url = git@github.com:Grupo-68-FIAP/Fiap.McTech.Payments.git
+[submodule "Fiap.McTech.Cart"]
+	path = Fiap.McTech.Cart
+	url = git@github.com:Grupo-68-FIAP/Fiap.McTech.Cart.git
