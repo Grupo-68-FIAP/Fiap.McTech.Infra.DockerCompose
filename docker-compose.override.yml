@@ -1,6 +1,6 @@
 services:
-  fiap.mctech.payments.api:
-    container_name: mctech_payments_api
+  fiap.mctech.payment.api:
+    container_name: mctech_payment_api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8081
@@ -10,12 +10,12 @@ services:
       OPENID_AUTHORITY: ${OPENID_AUTHORITY}
       OPENID_AUDIENCE: ${OPENID_AUDIENCE}
     ports:
-      - "8081:8081"
+      - "9001:8081"
     networks:
       - local_network
       - db_network
 
-  fiap.mctech.api.order:
+  fiap.mctech.order.api:
     container_name: mctech_order_api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -30,22 +30,22 @@ services:
       MCTECH_PAYMENT_SERVICE: ${MCTECH_PAYMENT_SERVICE}
 
     ports:
-      - "8081:8081"
+      - "9002:8081"
     networks:
       - local_network 
       - db_network
 
   fiap.mctech.cart.api:
-    container_name: mctech-cart
+    container_name: mctech_cart_api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_URLS: https://+:443;http://+:80
+      ASPNETCORE_URLS: http://+:80
       OPENID_AUTHORITY: ${OPENID_AUTHORITY}
       OPENID_AUDIENCE: ${OPENID_AUDIENCE}
       REDIS_CONNECTION: redis:6379
     ports:
-      - "80"
-      - "443"
+      - "9003:80"
+      #- "443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

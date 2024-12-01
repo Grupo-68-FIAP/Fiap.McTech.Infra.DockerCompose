@@ -1,18 +1,18 @@
 services:
-  fiap.mctech.payments.api:
+  fiap.mctech.payment.api:
     depends_on:
       - sqlserver
       - keycloak
-    image: ${DOCKER_REGISTRY-}mctech/api-payments
+    image: ${DOCKER_REGISTRY-}mctech/payment-api
     build:
       context: .
       dockerfile: dockerfiles/Payment.Dockerfile
 
-  fiap.mctech.api.order:
+  fiap.mctech.order.api:
     depends_on:
       - sqlserver
       - keycloak
-    image: ${DOCKER_REGISTRY-}mctech/orders-api
+    image: ${DOCKER_REGISTRY-}mctech/order-api
     build:
       context: .
       dockerfile: dockerfiles/Order.Dockerfile
@@ -21,7 +21,7 @@ services:
     depends_on:
       - redis
       - keycloak
-    image: ${DOCKER_REGISTRY-}fiapmctechcartapi
+    image: ${DOCKER_REGISTRY-}mctech/cart-api
     build:
       context: .
       dockerfile: dockerfiles/Cart.Dockerfile
