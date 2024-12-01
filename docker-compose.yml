@@ -6,7 +6,7 @@ services:
     image: ${DOCKER_REGISTRY-}mctech/api-payments
     build:
       context: .
-      dockerfile: ../src/Fiap.McTech.Payments.Presentation.API/Dockerfile
+      dockerfile: Fiap.McTech.Payments/src/Fiap.McTech.Payments.Presentation.API/Dockerfile
 
   fiap.mctech.api.order:
     depends_on:
@@ -15,7 +15,7 @@ services:
     image: ${DOCKER_REGISTRY-}mctech/orders-api
     build:
       context: .
-      dockerfile: src/WebApi/Dockerfile
+      dockerfile: Fiap.McTech.Orders/src/WebApi/Dockerfile
 
   fiap.mctech.cart.api:
     depends_on:
@@ -24,7 +24,7 @@ services:
     image: ${DOCKER_REGISTRY-}fiapmctechcartapi
     build:
       context: .
-      dockerfile: src/Fiap.McTech.Cart.Api/Dockerfile
+      dockerfile: Fiap.McTech.Cart/src/Fiap.McTech.Cart.Api/Dockerfile
   
   redis:
     image: redis:latest
